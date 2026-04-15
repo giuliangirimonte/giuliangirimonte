@@ -226,7 +226,7 @@ main {
 .notesAreaRows {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 2rem;
+  gap: 3rem;
   justify-content: center;
   justify-items: center;
   padding: 4rem 2rem;
@@ -243,7 +243,7 @@ main {
   top: 0 !important;
   left: 0 !important;
   width: 100%;
-  max-width: 20rem;
+  max-width: 30rem;
 }
 .notesAreaRows a:link {
   color:oklch(0.1957 0 160.94);
@@ -308,6 +308,12 @@ main {
     padding-top: 2rem;
   }
 
+  .notesAreaRows {
+
+  padding: 0rem 0rem;
+
+}
+
 .note {
     position: relative;
     top: 0 !important;
@@ -337,7 +343,7 @@ position: relative;
   font-family: Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  background: oklch(100% 0.00011 271.152);
+  /* background: oklch(100% 0.00011 271.152); */
   border-top: 1px solid oklch(0.1957 0 160.94);
   color: oklch(0.1957 0 160.94);
   width: auto;
