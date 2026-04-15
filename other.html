@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Other • Giulian Girimonte</title>
+<link rel="stylesheet" href="style.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+</style>
+
+</head>
+
+<body>
+<main>
+<nav class="navbar">
+  <h1><a href="index.html">[ GIULIAN GIRIMONTE ]</a></h1>
+  <ul class="nav-links">
+    <li><a href="design.html">design</a></li>
+    <li><a href="photography.html">photography</a></li>
+    <li><a href="other.html">other</a></li>
+    <li><a href="about_contact.html">about & contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">+</div>
+  
+</nav>
+
+<div class="marquee">
+  <div class="marquee-content">
+other other other other other other other other other other other other other other other other other other other other
+other other other other other other other other other other other other other other other other other other
+</div>
+</div>
+
+
+<div class="notesAreaRows">
+  <div class="note" style="background-color: oklch(88.873% 0.05681 18.18);">
+    <div class="noteBar"></div>
+    <h1><a href="other/the_leaf_lounge_page.html">The Leaf Lounge (2026)</a></h1>
+    <p>The Leaf Lounge is a website</p><br>
+  </div>
+</div>
+
+</main>
+<footer class="footerInfo">
+  <p>Giulian Girimonte</p>
+  <p>© All rights reserved</p>
+  <p><a href="https://www.instagram.com/gmonte.design">Instagram</a></p>
+  <p><a href="https://youtube.com/@giulian-girimonte?si=DV3kGTkPRp4BPoX7">Youtube</a></p>
+  <p><a href="https://www.linkedin.com/in/giulian-girimonte-74611b378">LinkedIn</a></p>
+</footer>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.querySelector(".nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    if (navLinks.classList.contains("active")) {
+      hamburger.textContent = "∷";
+    } else {
+      hamburger.textContent = "+";
+    }
+  });
+
+let activeNote = null;
+let offsetX = 0;
+let offsetY = 0;
+let highestZ = 1;
+
+document.querySelectorAll(".note").forEach(note => {
+
+  note.addEventListener("mousedown", (e) => {
+    activeNote = note;
+
+    const rect = note.getBoundingClientRect();
+
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+    highestZ++;
+    note.style.zIndex = highestZ;
+
+    note.style.cursor = "grabbing";
+  });
+});
+
+document.addEventListener("mouseup", () => {
+  if (activeNote) {
+    activeNote.style.cursor = "grab";
+  }
+  activeNote = null;
+});
+
+</script>
+
+</body>
+
+</html>
