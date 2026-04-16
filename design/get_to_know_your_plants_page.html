@@ -33,20 +33,29 @@ background-color: oklch(88.861% 0.05652 230.433);
     <h1>Get To Know Your Plants Poster & Zine</h1>
 </div>
 
-<div class="pageImage">
+<!-- <div class="pageImage">
     <img src="get_to_know_your_plants/plants_poster.jpg">
     <img src="get_to_know_your_plants/plants_zine.jpg">
+</div> -->
+
+<div class="gallery">
+  <img src="get_to_know_your_plants/plants_poster.jpg" alt=""class="gallery-img">
+  <img src="get_to_know_your_plants/plants_zine.jpg" alt="" class="gallery-img">
+</div>
+
+<div class="lightbox" id="lightbox">
+  <img src="" alt="" id="lightbox-img">
 </div>
 
 <div class="pageParagraph">
     <p>The Get To Know Your Plants Poster & Zine connects to a web design project, <a href="../other/the_leaf_lounge_page.html" target="_blank">The Leaf Lounge (view the project here)</a>. The poster acts as an advertisement for the website, while the zine functions as an “offline guide” to its content. Both were designed with risograph colours, layering, and printing in mind, reflecting the constraints and qualities of risograph printing.</p>
 </div>
 
-<div class="buttonContainer">
+<!-- <div class="buttonContainer">
 <a href="get_to_know_your_plants/get_to_know_your_plants.pdf" target="_blank" class="pdf-button">
   View PDF
 </a>
-</div>
+</div> -->
 
 </main>
 <footer class="footerInfo">
@@ -98,6 +107,23 @@ document.addEventListener("mouseup", () => {
     activeNote.style.cursor = "grab";
   }
   activeNote = null;
+});
+
+const images = document.querySelectorAll('.gallery-img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+  });
+});
+
+
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
 });
 </script>
 
