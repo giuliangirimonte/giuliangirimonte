@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mid-Century Furniture (2025) • Giulian Girimonte</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+background-color: oklch(88.873% 0.05681 18.18);
+}
+</style>
+
+</head>
+
+<body>
+<main>
+<nav class="navbar">
+  <h1><a href="../index.html">[ GIULIAN GIRIMONTE ]</a></h1>
+  <ul class="nav-links">
+    <li><a href="../design.html">design</a></li>
+    <li><a href="../photography.html">photography</a></li>
+    <li><a href="../other.html">other</a></li>
+    <li><a href="../about_contact.html">about & contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">+</div>
+  
+</nav>
+
+<div class="pageContent">
+<div class="pageTitle">
+    <h3>(2025)</h3>
+    <h1>Mid-Century Furniture Editorial</h1>
+</div>
+
+
+<div class="gallery">
+  <img src="mid_century_furniture/mid_century_furniture_cover.png" alt="" class= "gallery-img">
+</div>
+
+<div class="pageParagraph">
+    <p></p>
+</div>
+
+<div class="pageParagraph">
+    <p>This mid-century furniture editorial takes a written article and turns it into a cohesive layout using typography, imagery, and mid-century design influences. It focuses on clean composition and bold details to make the content more engaging and easier to read.</p>
+</div>
+</div>
+
+<div class="buttonContainer">
+<a href="mid_century_furniture/mid_century_furniture_editorial.pdf" target="_blank" class="pdf-button">
+  View Book
+</a>
+</div>
+
+</main>
+<footer class="footerInfo">
+  <p>Giulian Girimonte</p>
+  <p>© All rights reserved</p>
+  <p><a href="https://www.instagram.com/gmonte.design">Instagram</a></p>
+  <p><a href="https://youtube.com/@giulian-girimonte?si=DV3kGTkPRp4BPoX7">Youtube</a></p>
+  <p><a href="https://www.linkedin.com/in/giulian-girimonte-74611b378">LinkedIn</a></p>
+</footer>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.querySelector(".nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    if (navLinks.classList.contains("active")) {
+      hamburger.textContent = "∷";
+    } else {
+      hamburger.textContent = "+";
+    }
+  });
+
+let activeNote = null;
+let offsetX = 0;
+let offsetY = 0;
+let highestZ = 1;
+
+document.querySelectorAll(".note").forEach(note => {
+
+  note.addEventListener("mousedown", (e) => {
+    activeNote = note;
+
+    const rect = note.getBoundingClientRect();
+
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+    highestZ++;
+    note.style.zIndex = highestZ;
+
+    note.style.cursor = "grabbing";
+  });
+});
+
+document.addEventListener("mouseup", () => {
+  if (activeNote) {
+    activeNote.style.cursor = "grab";
+  }
+  activeNote = null;
+});
+</script>
+
+</body>
+
+</html>

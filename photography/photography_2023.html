@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Photography 2023 • Giulian Girimonte</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+background-color: oklch(93.962% 0.08908 138.262);
+}
+</style>
+
+</head>
+
+<body>
+<main>
+<nav class="navbar">
+  <h1><a href="../index.html">[ GIULIAN GIRIMONTE ]</a></h1>
+  <ul class="nav-links">
+    <li><a href="../design.html">design</a></li>
+    <li><a href="../photography.html">photography</a></li>
+    <li><a href="../other.html">other</a></li>
+    <li><a href="../about_contact.html">about & contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">+</div>
+  
+</nav>
+
+<div class="pageContent">
+<div class="pageTitle">
+    <h3>(2023)</h3>
+    <h1>Photography 2023</h1>
+</div>
+
+<hr>
+
+<div class="pageParagraph">
+    <p>This collection showcases photographs taken throughout 2023, capturing a range of moments, subjects, and experiments. The images reflect an ongoing exploration of observation, composition, and visual storytelling, serving as a foundation for my growing interest in photography. Together, these works represent an early stage of creative development and personal expression through the medium.</p>
+</div>
+
+<!-- <div class="pageImage">
+    <img src="mixed_media/mixedmedia_photo_1.jpg">
+    <img src="mixed_media/mixedmedia_photo_2.jpg">
+</div> -->
+
+<div class="gallery">
+        <img src="2023/photography_2023_8.jpg" alt="" class="gallery-img">
+    <img src="2023/photography_2023_2.jpg" alt="" class="gallery-img">
+    <img src="2023/photography_2023_3.jpg" alt="" class="gallery-img">
+    <img src="2023/photography_2023_4.jpg" alt="" class="gallery-img">
+    <img src="2023/photography_2023_5.jpg" alt="" class="gallery-img">
+      <img src="2023/photography_2023_1.jpg" alt="" class="gallery-img">
+          <img src="2023/photography_2023_7.jpg" alt="" class="gallery-img">
+    <img src="2023/photography_2023_6.jpg" alt="" class="gallery-img">
+</div>
+
+<div class="lightbox" id="lightbox">
+  <img src="" alt="" id="lightbox-img">
+</div>
+
+
+
+</main>
+<footer class="footerInfo">
+  <p>Giulian Girimonte</p>
+  <p>© All rights reserved</p>
+  <p><a href="https://www.instagram.com/gmonte.design">Instagram</a></p>
+  <p><a href="https://youtube.com/@giulian-girimonte?si=DV3kGTkPRp4BPoX7">Youtube</a></p>
+  <p><a href="https://www.linkedin.com/in/giulian-girimonte-74611b378">LinkedIn</a></p>
+</footer>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.querySelector(".nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    if (navLinks.classList.contains("active")) {
+      hamburger.textContent = "∷";
+    } else {
+      hamburger.textContent = "+";
+    }
+  });
+
+let activeNote = null;
+let offsetX = 0;
+let offsetY = 0;
+let highestZ = 1;
+
+document.querySelectorAll(".note").forEach(note => {
+
+  note.addEventListener("mousedown", (e) => {
+    activeNote = note;
+
+    const rect = note.getBoundingClientRect();
+
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+    highestZ++;
+    note.style.zIndex = highestZ;
+
+    note.style.cursor = "grabbing";
+  });
+});
+
+document.addEventListener("mouseup", () => {
+  if (activeNote) {
+    activeNote.style.cursor = "grab";
+  }
+  activeNote = null;
+});
+
+const images = document.querySelectorAll('.gallery-img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+  });
+});
+
+
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+</script>
+
+</body>
+
+</html>
