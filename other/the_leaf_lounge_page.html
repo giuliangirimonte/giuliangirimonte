@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Leaf Lounge (2026) • Giulian Girimonte</title>
+
+<link rel="icon" type="image/png" sizes="32x32s" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#FFFFFF">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="../style.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+background-color: oklch(93.962% 0.08908 138.262);
+}
+</style>
+
+</head>
+
+<body>
+<main>
+<nav class="navbar">
+  <h1><a href="../index.html">[ GIULIAN GIRIMONTE ]</a></h1>
+  <ul class="nav-links">
+    <li><a href="../design.html">design</a></li>
+    <li><a href="../photography.html">photography</a></li>
+    <li><a href="../other.html">other</a></li>
+    <li><a href="../about_contact.html">about & contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">+</div>
+  
+</nav>
+
+<div class="pageContent">
+<div class="pageTitle">
+    <h3>(2026)</h3>
+    <h1>The Leaf Lounge</h1>
+</div>
+
+<!-- <div class="pageImage">
+    <img src="gd_exhib_poster/gd_exhib_poster.jpg">
+    <img src="gd_exhib_poster/gd_exhib_poster_gallery.jpg">
+</div> -->
+
+<div class="gallery">
+  <img src="the_leaf_lounge/the_leaf_lounge_home.jpg" alt="" class= "gallery-img">
+  <img src="the_leaf_lounge/the_leaf_lounge_garden.jpg" alt="" class= "gallery-img">
+</div>
+
+<div class="lightbox" id="lightbox">
+  <img src="" alt="" id="lightbox-img">
+</div>
+
+<div class="pageParagraph">
+    <p>The Leaf Lounge is an interactive web design project focused on helping users easily care for their plants. The site features a searchable plant library with detailed care information, along with a calendar tool that allows users to set recurring reminders on their device for watering and maintenance. Paired with a "lounge" focused on plant-care tools and an ambient-sound collection, the website encourages a more mindful approach to plant care.</p>
+</div>
+
+<div class="buttonContainer">
+<a href="https://giuliangirimonte.github.io/theleaflounge/" target="_blank" class="pdf-button">
+  View Website
+</a>
+</div>
+
+</main>
+<footer class="footerInfo">
+  <p>Giulian Girimonte</p>
+  <p>© All rights reserved</p>
+  <p><a href="https://www.instagram.com/gmonte.design">Instagram</a></p>
+  <p><a href="https://youtube.com/@giulian-girimonte?si=DV3kGTkPRp4BPoX7">Youtube</a></p>
+  <p><a href="https://www.linkedin.com/in/giulian-girimonte-74611b378">LinkedIn</a></p>
+</footer>
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.querySelector(".nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    if (navLinks.classList.contains("active")) {
+      hamburger.textContent = "∷";
+    } else {
+      hamburger.textContent = "+";
+    }
+  });
+
+let activeNote = null;
+let offsetX = 0;
+let offsetY = 0;
+let highestZ = 1;
+
+document.querySelectorAll(".note").forEach(note => {
+
+  note.addEventListener("mousedown", (e) => {
+    activeNote = note;
+
+    const rect = note.getBoundingClientRect();
+
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+    highestZ++;
+    note.style.zIndex = highestZ;
+
+    note.style.cursor = "grabbing";
+  });
+});
+
+document.addEventListener("mouseup", () => {
+  if (activeNote) {
+    activeNote.style.cursor = "grab";
+  }
+  activeNote = null;
+});
+
+const images = document.querySelectorAll('.gallery-img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+  });
+});
+
+
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+</script>
+
+</body>
+
+</html>
